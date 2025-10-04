@@ -5,9 +5,10 @@
 using namespace std;
 
 // Order Struct
-struct Order {
+struct Order
+{
     int id;
-    string type; // "buy" or "sell"
+    string type; 
     int price;
     int quantity;
     Order(int _id, string _type, int _price, int _quantity)
@@ -15,13 +16,17 @@ struct Order {
 };
 
 // Comparators for heaps
-struct BuyCompare {
-    bool operator()(const Order& a, const Order& b) {
+struct BuyCompare 
+{
+    bool operator()(const Order& a, const Order& b) 
+{
         return a.price < b.price; // Max-heap for buy
     }
 };
-struct SellCompare {
-    bool operator()(const Order& a, const Order& b) {
+struct SellCompare 
+{
+    bool operator()(const Order& a, const Order& b) 
+{
         return a.price > b.price; // Min-heap for sell
     }
 };
@@ -32,7 +37,8 @@ struct Trade {
     Trade(int b, int s, int p, int q) : buyId(b), sellId(s), price(p), quantity(q) {}
 };
 
-int main() {
+int main() 
+{
     priority_queue<Order, vector<Order>, BuyCompare> buyOrders;
     priority_queue<Order, vector<Order>, SellCompare> sellOrders;
     vector<Trade> tradeHistory;
@@ -46,14 +52,16 @@ int main() {
     cout << "2. Quantity (e.g., 100)\n";
     cout << "3. Price (e.g., 55)\n";
 
-    while (true) {
+    while (true) 
+    {
         string type;
         int qty, price;
 
         cout << "\nEnter Order Type (buy/sell): ";
         cin >> type;
 
-        if (type != "buy" && type != "sell") {
+        if (type != "buy" && type != "sell") 
+        {
             cout << "Invalid type. Please enter 'buy' or 'sell'.\n";
             continue;
         }
@@ -69,11 +77,13 @@ int main() {
         else sellOrders.push(newOrder);
 
         // Matching Logic
-        while (!buyOrders.empty() && !sellOrders.empty()) {
+        while (!buyOrders.empty() && !sellOrders.empty()) 
+        {
             Order buy = buyOrders.top();
             Order sell = sellOrders.top();
 
-            if (buy.price >= sell.price) {
+            if (buy.price >= sell.price) 
+            {
                 int tradedQty = min(buy.quantity, sell.quantity);
                 int tradePrice = sell.price;
 
@@ -83,11 +93,13 @@ int main() {
                 buyOrders.pop();
                 sellOrders.pop();
 
-                if (buy.quantity > tradedQty) {
+                if (buy.quantity > tradedQty) 
+                {
                     buy.quantity -= tradedQty;
                     buyOrders.push(buy);
                 }
-                if (sell.quantity > tradedQty) {
+                if (sell.quantity > tradedQty) 
+                {
                     sell.quantity -= tradedQty;
                     sellOrders.push(sell);
                 }
@@ -99,14 +111,16 @@ int main() {
         auto tempSell = sellOrders;
         cout << "\nCurrent Buy Orders:\n";
         if (tempBuy.empty()) cout << "(none)\n";
-        while (!tempBuy.empty()) {
+        while (!tempBuy.empty()) 
+        {
             auto o = tempBuy.top(); tempBuy.pop();
             cout << "[Rs" << o.price << " x " << o.quantity << "] (ID " << o.id << ")\n";
         }
 
         cout << "\nCurrent Sell Orders:\n";
         if (tempSell.empty()) cout << "(none)\n";
-        while (!tempSell.empty()) {
+        while (!tempSell.empty())
+        {
             auto o = tempSell.top(); tempSell.pop();
             cout << "[Rs" << o.price << " x " << o.quantity << "] (ID " << o.id << ")\n";
         }
@@ -114,7 +128,8 @@ int main() {
         // Display Trade History
         cout << "\nTrade History:\n";
         if (tradeHistory.empty()) cout << "(none)\n";
-        for (auto& t : tradeHistory) {
+        for (auto& t : tradeHistory) 
+        {
             cout << "Buy ID " << t.buyId << " matched with Sell ID " << t.sellId
                  << " at Rs" << t.price << " x " << t.quantity << endl;
         }
@@ -128,3 +143,4 @@ int main() {
     cout << "\nExiting Limit Order Book Simulator. Thank you!\n";
     return 0;
 }
+
