@@ -1,4 +1,4 @@
-# 📈 Limit Order Book Simulator (C++)
+# 📈 Order matching System (C++)
 
 A beginner-friendly terminal-based matching engine written in C++ that simulates buy/sell order flow using heaps and greedy logic.
 
