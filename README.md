@@ -44,7 +44,7 @@ A beginner-friendly terminal-based matching engine written in C++ that simulates
 
 ## ▶️ How to Run
 
-bash
+```bash
 g++ main.cpp -o lob
 ./lob
 -------------------------------------------
