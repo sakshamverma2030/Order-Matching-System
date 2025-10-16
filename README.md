@@ -1,10 +1,10 @@
-# 📈 Order matching System (C++)
+# Order matching System (C++)
 
 A beginner-friendly terminal-based matching engine written in C++ that simulates buy/sell order flow using heaps and greedy logic.
 
 ---
 
-## 🚀 Features
+## Features
 
 - Guided input for buy/sell orders
 - Real-time trade execution using heap-based matching
@@ -14,7 +14,7 @@ A beginner-friendly terminal-based matching engine written in C++ that simulates
 
 ---
 
-## 🧠 DSA Concepts Used
+##  DSA Concepts Used
 
 | Concept             | Role in Project                          |
 |---------------------|-------------------------------------------|
@@ -26,30 +26,30 @@ A beginner-friendly terminal-based matching engine written in C++ that simulates
 | Modular Design      | Scalable architecture (optional split)    |
 
 ---
-## 📊 Project Flow (Step-by-Step)
+##  Project Flow (Step-by-Step)
 
 | Step | What Happens |
 |------|--------------|
-| 1️⃣   | User enters order (type, quantity, price) |
-| 2️⃣   | Input is validated |
-| 3️⃣   | Order is stored in buy/sell heap |
-| 4️⃣   | Matching logic checks top buy/sell |
-| 5️⃣   | Trade is executed if prices match |
-| 6️⃣   | Quantity is adjusted and leftovers re-added |
-| 7️⃣   | Trade is stored in history |
-| 8️⃣   | Order book and trade history are displayed |
-| 9️⃣   | User decides to continue or exit |
+| 1️   | User enters order (type, quantity, price) |
+| 2️   | Input is validated |
+| 3️   | Order is stored in buy/sell heap |
+| 4️   | Matching logic checks top buy/sell |
+| 5️   | Trade is executed if prices match |
+| 6️   | Quantity is adjusted and leftovers re-added |
+| 7️   | Trade is stored in history |
+| 8️   | Order book and trade history are displayed |
+| 9️   | User decides to continue or exit |
 
 ---
 
-## ▶️ How to Run
+##  How to Run
 
 ```bash
 g++ main.cpp -o lob
 ./lob
 -------------------------------------------
 
-## 📄 Sample Input
+##  Sample Input
 Order Type: buy  
 Quantity: 100  
 Price: 60  
@@ -58,7 +58,7 @@ Order Type: sell
 Quantity: 50  
 Price: 58
  -----------------------------------------
-## 📤 Sample Output
+##  Sample Output
 
 Trade Executed: Rs58 x 50
 
